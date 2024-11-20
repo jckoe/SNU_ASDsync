@@ -26,7 +26,7 @@ data_corr_full <- read_xlsx("/PATH/TO/ADOS/SPREADSHEET")
 data_corr_age <- data_corr_full %>%
   select(Mean_Score, Demo_Age) 
 
-corr_age <- psych::corr.test(data_corr_age[-1], data_corr$Mean_Score, adjust="fdr")
+corr_age <- psych::corr.test(data_corr_age[-1], data_corr_age$Mean_Score, adjust="fdr")
 corr_age$p
 
 apaTables::apa.cor.table(data_corr_age, filename = NA, table.number = NA,
